@@ -1,0 +1,105 @@
+/* @font-face {
+    font-family: monospace;
+    src: url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+} */
+
+.venue-ip
+{
+    scroll-snap-align: start;
+    background-color: rgb(0, 0, 53);
+    display: flex;
+    border: 1px solid;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.text1
+{
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    font-size: 50px;
+    font-family: monospace;
+    color: green;
+    
+    /* animation: typing1 3.5s steps(20,end), blink-caret 0.75s step-end infinite; */
+    /* animation-name: typing1;
+    animation-duration: 2s;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-timing-function: steps(20,end);
+    animation-direction: alternate */
+}
+
+/* @keyframes typing1 {
+    from { width: 0 }
+    to { width: 870px }
+} */
+
+.ip-input
+{
+    background-color: rgba(0,0,0,0);
+    color: green;
+    border: 1px solid rgb(0, 0, 130);
+    height: 20px;
+    font-size: 35px;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+    font-family: monospace;
+}
+
+.ip-input:focus 
+{
+    outline: none;
+    caret-color: green;
+}
+
+.venue-protocol
+{
+    scroll-snap-align: start;
+    height: 100vh;
+    background-color: rgb(0, 50, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.text2
+{
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    font-size: 50px;
+    font-family: monospace;
+    color: rgb(95, 95, 255);
+    
+    /* animation: typing2 3.5s steps(20,end), blink-caret 0.75s step-end infinite; */
+    animation-name: typing2;
+    animation-duration: 2s;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-timing-function: steps(20,end);
+    animation-direction: alternate
+}
+
+@keyframes typing2
+{
+    from { width: 0 }
+    to { width: 650px }
+}
+
+.radio 
+{
+    color: rgb(95, 95, 255);
+    height: 20px;
+    font-size: 35px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+    font-family: monospace;
+}
