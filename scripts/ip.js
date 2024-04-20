@@ -1,3 +1,4 @@
+
 const ipInput = document.getElementById('ip-input');
 
 ipInput.addEventListener("keypress", function(event)
@@ -13,3 +14,4 @@ ipInput.addEventListener("keypress", function(event)
         alert("You have entered an invalid IP address!")  
     }
 });
+

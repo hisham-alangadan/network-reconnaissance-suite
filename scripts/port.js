@@ -36,7 +36,8 @@ function acceptPort()
         }
         else
         {
-            console.log("Port accepted")
+            console.log("Port accepted");
+            window.location.href = ("./protocol.html")
         }
 
     }
