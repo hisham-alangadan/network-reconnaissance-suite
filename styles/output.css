@@ -1,9 +1,11 @@
 .venue {
     background-color: rgb(0, 0, 59);
-    height: 100vh;
+    height: auto;
     width: 94vw;
+    min-height: 84vh;
     padding-top: 6vh;
     padding-left: 6vw;
+    padding-bottom: 6vw;
 }
 
 .heading {

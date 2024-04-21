@@ -14,6 +14,7 @@
 {
     position: fixed;
     height: 6vh;
+    /* width: calc(100% - 20px); */
     width: 100%;
     background-color: black;
     padding-left: 10px;
@@ -35,9 +36,15 @@
     justify-content: space-around;
 }
 
+.k {
+    width: 20px;
+}
+
 .header-button
 {
-    /* border: 1px solid; */
+    border: none;
+    background-color: transparent;
+    color: white;
 }
 
 .logo ,.navigation 
