@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./static/index.css">
+	<link rel="stylesheet" href="./static/header.css">
+	<title>Flags</title>
+</head>
+
+<body class="body">
+	<div class="header">
+		<div class="logo">Network Recoinnance Suite</div>
+		<div class="navigation">
+			<a href="/index">
+				<button class="header-button">Home</button>
+			</a>
+			<a href="/index">
+				<button class="header-button">About</button>
+			</a>
+			<a href="/index">
+				<button class="header-button">Help</button>
+			</a>
+		</div>
+	</div>
+	<div class="venue-protocol">
+		<div class="text1">
+			Please select the flags you want to set:
+		</div>
+		<div class="flags">
+			<button onclick=f_syn()>SYN</button>
+			<button onclick=f_ack()>ACK</button>
+			<button onclick=f_fin()>FIN</button>
+			<button onclick=f_rst()>RST</button>
+			<button onclick=f_urg()>URG</button>
+			<button onclick=f_psh()>PSH</button>
+		</div>
+	</div>
+</body>
+
+</html>
