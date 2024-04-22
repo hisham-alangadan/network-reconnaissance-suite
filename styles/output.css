@@ -24,3 +24,20 @@
     color: rgb(0, 0, 39);
     padding: 1vw;
 }
+
+.output-prompt {
+    color: rgb(141, 215, 141);
+    font-family: monospace;
+    font-size: 20px;
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+.submit-button {
+    border: none;
+    font-family: monospace;
+    background-color: rgb(141, 215, 141);
+    border-radius: 5px;
+    color: rgb(0, 0, 39);
+    width: 40px;
+}

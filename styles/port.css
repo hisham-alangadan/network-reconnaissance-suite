@@ -12,7 +12,7 @@
 {
     display: flex;
     padding: 9px;
-    width: 60vh;
+    width: 90vh;
     justify-content: space-around;
 }
 
@@ -25,6 +25,7 @@
     border-radius: 20px;
     padding: 5px;
     text-align: center;
+    color: rgb(95,95,255);
 }
 
 .port-input input:focus{
