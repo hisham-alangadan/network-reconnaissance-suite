@@ -1,0 +1,85 @@
+.venue
+{
+    background-color: rgb(0,50,0);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.port-input
+{
+    display: flex;
+    padding: 9px;
+    width: 90vh;
+    justify-content: space-around;
+}
+
+.port-input input
+{
+    background-color: transparent;
+    border: 1px solid lightblue;
+    font-size: 25px;
+    width: 25vh;
+    border-radius: 20px;
+    padding: 5px;
+    text-align: center;
+    color: rgb(95,95,255);
+}
+
+.port-input input:focus{
+    outline: none;
+    caret-color: transparent;
+}
+
+.text1
+{
+    color: rgb(95,95,255);
+    font-family: monospace;
+    font-size: 50px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    /* animation-delay: 0s;
+    animation-name: typing;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: steps(20,end);
+    animation-direction: alternate */
+
+    animation: typing1 6s steps(20,end) infinite ;
+}
+
+@keyframes typing1 {
+    0% {
+        width: 0;
+    }
+
+    25% {
+        width: 630px;
+    }
+
+    75% {
+        width: 630px;
+    }
+
+    90% {
+        width: 0px;
+    }
+
+    100% {
+        width: 0px;
+    }
+}
+
+/* @keyframes typing1
+{
+    from { width: 0 }
+    to { width: 630px }
+}
+
+@keyframes untype1 {
+    from { width: 630px }
+    to { width: 0 }
+} */
