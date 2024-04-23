@@ -1,3 +1,8 @@
+@font-face {
+	font-family: "researcher";
+	src: url("/static/fonts/researcher-researcher-bold-700.ttf");
+}
+
 .venue-ip
 {
     background-color: rgb(0, 0, 53);
@@ -97,4 +102,46 @@
     text-align: center;
     margin-top: 20px;
     font-family: monospace;
+}
+
+/* index.html file*/
+
+.bodyi {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+}
+
+.headeri {
+    padding-top: 50px;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center;
+    justify-content: center; */
+    background-color: black;
+    height: 80vh;
+    width: 100%;
+}
+
+.huge-logo {
+    color: white;
+    font-family: "researcher";
+    font-size: 80px;
+    /* border: 2px solid red; */
+}
+
+.start-button {
+    padding-top: 90px;
+    /* display: flex; */
+    margin-left: calc(40%);
+}
+
+.start-button > form > button {
+    flex: 2;
+    font-size: 30px;
+    font-family: monospace;
+    background-color: transparent;
+    color: beige;
+    border: none;
 }

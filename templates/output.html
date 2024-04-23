@@ -4,8 +4,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./static/header.css">
-	<link rel="stylesheet" href="./static/output.css">
+	<link rel="stylesheet" href="../static/header.css">
+	<link rel="stylesheet" href="../static/output.css">
 	<title>Output</title>
 </head>
 
@@ -33,27 +33,26 @@
 			Output
 		</div>
 		<div class="display">
-			<h3>Open Ports</h3>
-			<br><br>
-			{% for port in open_ports%}
-			{% if port[1] != 'unknown'%}
-			Port {{port[0]}} ({{port[1]}}) OPEN
-			{%endif%}
-			<br>
-			{%endfor%}
-			<h3>Closed Ports</h3>
-			<br><br>
-			{% for port in closed_ports%}
-			Port {{port[0]}} ({{port[1]}}) CLOSED
-			<br>
-			<br>
-			{%endfor%}
-			<h3>Filtered Ports</h3>
-			<br><br>
+			<div class="open">
+				<h3>Open Ports</h3>
+				{% for port in open_ports%}
+				{% if port[1] != 'unknown'%}
+				Port {{port[0]}} ({{port[1]}}) OPEN
+				{%endif%}
+				<br><br>
+				{%endfor%}
+			</div>
+			<div class="closed">
+				<h3>Closed Ports</h3>
+				{% for port in closed_ports%}
+				Port {{port[0]}} ({{port[1]}}) CLOSED
+				<br><br>
+				{%endfor%}
+			</div>
+				<h3>Filtered Ports</h3>
 			{% for port in filtered_ports%}
 			Port {{port[0]}} ({{port[1]}}) FILTERED
-			<br>
-			<br>
+			<br><br>
 			{%endfor%}
 			<!-- {{open_ports}} -->
 		</div>

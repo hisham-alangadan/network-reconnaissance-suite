@@ -1,10 +1,11 @@
 .venue {
     background-color: rgb(0, 0, 59);
     height: auto;
-    width: 94vw;
+    width: 88vw;
     min-height: 84vh;
     padding-top: 6vh;
     padding-left: 6vw;
+    padding-right: 6vw;
     padding-bottom: 6vw;
 }
 
@@ -16,23 +17,75 @@
     padding-bottom: 4vh;
 }
 
+
+.main-block {
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+
+.main-block > div {
+    flex: 1;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.vertical-container {
+    user-select: none;
+    /* display: flex; */
+    height: 40px;
+    border-radius: 20px;
+    background-color: transparent;
+    color: lightgreen;
+    font-family: monospace;
+    font-size: 17px;
+    /* border: 1px solid rgba(144, 238, 144, 0.5); */
+    margin-bottom: 20px;
+    position: inherit;
+}
+
+/* .vertical-container > input {
+    position: absolute;
+} */
+
+.arrow {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid black;
+    position: absolute;
+    margin-left: 50px;
+}
+
 .help {
     visibility: hidden;
-}
-
-.os-detection {
-}
-
-.os-detection:hover .help{
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: visible;
+    position: absolute;
+    /* border: 1px solid red; */
+    max-width: 40vw;
+    height: auto;
+    background-color: rgb(0, 0, 0);
     color: white;
-    /* background-color: rgba(255, 255, 255, 0.5); */
-    background-color: black;
-    height: 40px;
-    width: 130px;
-    border-radius: 10px;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.vertical-container:hover .help {
+    visibility: visible;
+    transition-delay: 1s;
+}
+
+.vertical-container:hover .arrow {
+    visibility: visible;
+    transition-delay: 1s;
+}
+
+.tooltiptext {
+    text-align: center;
+}
+
+.online {
+    font-weight: bold;
 }

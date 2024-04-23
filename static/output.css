@@ -19,7 +19,7 @@
 .display {
     width: 86vw;
     min-height: 50vh;
-    background-color: rgb(141, 215, 141);
+    background-color: rgb(197, 255, 197);
     border-radius: 20px;
     color: rgb(0, 0, 39);
     padding: 1vw;
@@ -40,4 +40,16 @@
     border-radius: 5px;
     color: rgb(0, 0, 39);
     width: 40px;
+}
+
+.display {
+    font-family: monospace;
+}
+
+.open {
+    color: green;
+}
+
+.closed {
+    color: red;
 }
