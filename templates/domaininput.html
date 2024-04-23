@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="../static/index.css">
 	<link rel="stylesheet" href="../static/header.css">
 	<!-- <script defer src="./scripts/ip.js"></script> -->
-	<title>Network Analyser</title>
+	<title>Network Reconnaissance Suite</title>
 </head>
 
 <body class="body">
@@ -22,12 +22,12 @@
 	</div>
 	<div class="venue-ip">
 		<div class="text1">
-			Enter your target IP address:
+			Enter the domain name:
 		</div>
 		<!-- <input type="text" id="ip-input" class="ip-input" minlength="7" maxlength="15" size="12" placeholder="xxx.xxx.xxx.xxx" autocomplete="off"> -->
-		<form action="/ip" method="POST">
-			<input type="text" id="ip-input" class="ip-input" minlength="7" maxlength="15" size="12"
-				placeholder="xxx.xxx.xxx.xxx" autocomplete="off" name="ip">
+		<form action="/domain" method="POST">
+			<input type="text" id="domain" class="ip-input"
+				placeholder="google.com" autocomplete="off" name="ip">
 			<input type="submit" value="Scan" name="scan" class="submit">
 		</form>
 	</div>

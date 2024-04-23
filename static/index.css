@@ -21,7 +21,7 @@
     margin: 0 auto;
     font-size: 50px;
     font-family: monospace;
-    color: green;
+    color: white;
     
     animation: typing1 3.5s steps(20,end), blink-caret 0.75s step-end infinite;
     animation-name: typing1;
@@ -37,10 +37,10 @@
     to { width: 870px }
 }
 
-.ip-input
+.ip-input, .domain-input
 {
     background-color: rgba(0,0,0,0);
-    color: green;
+    color: white;
     border: 1px solid rgb(0, 0, 130);
     height: 20px;
     font-size: 35px;
@@ -52,10 +52,21 @@
     text-align: center;
 }
 
-.ip-input:focus 
+.ip-input:focus, .domain-input:focus
 {
     outline: none;
     caret-color: green;
+}
+
+.submit {
+    margin-top: 20px;
+    margin-left: 10px;
+    height: 40px;
+    font-size: 20px;
+    border: 1px solid rgb(0, 0, 130);
+    border-radius: 20px;
+    background-color: transparent;
+    color: white;
 }
 
 .venue-protocol
@@ -144,4 +155,8 @@
     background-color: transparent;
     color: beige;
     border: none;
+}
+
+.about-members {
+    height: auto;
 }
