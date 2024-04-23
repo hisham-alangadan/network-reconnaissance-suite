@@ -39,7 +39,7 @@
 				{% if port[1] != 'unknown'%}
 				Port {{port[0]}} ({{port[1]}}) OPEN
 				{%endif%}
-				<br><br>
+				<br>
 				{%endfor%}
 			</div>
 			<div class="closed">
@@ -49,7 +49,7 @@
 				<br><br>
 				{%endfor%}
 			</div>
-				<h3>Filtered Ports</h3>
+			<h3>Filtered Ports</h3>
 			{% for port in filtered_ports%}
 			Port {{port[0]}} ({{port[1]}}) FILTERED
 			<br><br>
@@ -61,7 +61,7 @@
 			Do you want to run a script?
 		</div>
 		<form action="/output">
-			<input type="submit" value="Yes" class="submit-button">
+			<input type="submit" value="Yes" class="submit-button" name="submit">
 		</form>
 	</div>
 
