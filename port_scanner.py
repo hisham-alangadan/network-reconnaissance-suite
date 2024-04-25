@@ -171,10 +171,11 @@ def port_scan(host, start_port, end_port, tcp_flags=None, udp_flag=False):
 
 def check_ssl_certificate(host, port):
     try:
-        script_path = "C:\\Users\\Sonu George\\Desktop\\PROJECT\\ssl_cert_check.py"  # Path to ssl_cert_check.py
+        script_path = "scan_scripts/ssl_cert_check.py"  # Path to ssl_cert_check.py
         subprocess_arguments = ["python", script_path, host, str(port)]
         result = subprocess.run(subprocess_arguments, capture_output=True, text=True)
-        print(result.stdout)
+        # print(result.stdout)
+        return result.stdout
     except Exception as e:
         print(f"Error occurred during SSL certificate check: {e}")
 
