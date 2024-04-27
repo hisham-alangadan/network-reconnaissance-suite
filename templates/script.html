@@ -34,112 +34,135 @@
 		</div>
 
 		<div class="scripts">
-			<form action="/">
-			
+			<form action="/script" method="POST">
+
 				<div class="main-block">
 
 					<div class="horizontal-div">
 						<div class="vertical-container">
-							<input type="checkbox" id="sslcertificate" name="sslcertificate" value="sslcertificate">
+							<input type="checkbox" id="sslcertificate" name="script" value="sslcertificate">
 							<label for="sslcertificate">Check SSL Certificate</label>
 							<div class="arrow"></div>
 							<div class="help">
-								This script verifies the validity and security of an SSL certificate installed on a website or server. It ensures that the certificate is properly configured and up to date, providing encryption and authentication for secure connections.
+								This script verifies the validity and security of an SSL certificate installed on a
+								website or server. It ensures that the certificate is properly configured and up to
+								date, providing encryption and authentication for secure connections.
 							</div>
 						</div>
 						<div class="vertical-container">
-							<input type="checkbox" id="xss" name="xss" value="xss">
+							<input type="checkbox" id="xss" name="script" value="xss">
 							<label for="xss">Check XSS</label>
 							<div class="arrow"></div>
 							<div class="help">
-								This script scans for vulnerabilities that could allow attackers to inject malicious scripts into web pages viewed by other users. It helps identify and mitigate XSS vulnerabilities, which can lead to unauthorized access, data theft, and other security risks.
+								This script scans for vulnerabilities that could allow attackers to inject malicious
+								scripts into web pages viewed by other users. It helps identify and mitigate XSS
+								vulnerabilities, which can lead to unauthorized access, data theft, and other security
+								risks.
 							</div>
 						</div>
 						<div class="vertical-container">
-							<input type="checkbox" id="clickjacking" name="clickjacking" value="clickjacking">
+							<input type="checkbox" id="clickjacking" name="script" value="clickjacking">
 							<label for="clickjacking">Check Click Jacking</label>
 							<div class="arrow"></div>
 							<div class="help">
-								This script examines the website for potential clickjacking vulnerabilities, where attackers can trick users into clicking on unintended elements or buttons, leading to unauthorized actions or information disclosure.
+								This script examines the website for potential clickjacking vulnerabilities, where
+								attackers can trick users into clicking on unintended elements or buttons, leading to
+								unauthorized actions or information disclosure.
 
 							</div>
 						</div>
 						<div class="vertical-container">
-							<input type="checkbox" id="insecuremc" name="insecuremc" value="insecuremc">
+							<input type="checkbox" id="insecuremc" name="script" value="insecuremc">
 							<label for="insecuremc">Check Insecure Mixed Content</label>
 							<div class="arrow"></div>
 							<div class="help">
-								This script checks for insecure mixed content on web pages, where secure (HTTPS) pages include non-secure (HTTP) resources such as images, scripts, or stylesheets. Such mixed content can compromise the security of the entire page and leave it vulnerable to various attacks.
+								This script checks for insecure mixed content on web pages, where secure (HTTPS) pages
+								include non-secure (HTTP) resources such as images, scripts, or stylesheets. Such mixed
+								content can compromise the security of the entire page and leave it vulnerable to
+								various attacks.
 
 							</div>
 						</div>
 						<div class="vertical-container">
-							<input type="checkbox" id="hsts" name="hsts" value="hsts">
+							<input type="checkbox" id="hsts" name="script" value="hsts">
 							<label for="hsts">Check HSTS Vulnerability</label>
 							<div class="arrow"></div>
 							<div class="help">
-								This script evaluates whether the website implements HSTS, a security policy mechanism that helps protect websites against man-in-the-middle attacks and cookie hijacking by forcing secure connections (HTTPS).
+								This script evaluates whether the website implements HSTS, a security policy mechanism
+								that helps protect websites against man-in-the-middle attacks and cookie hijacking by
+								forcing secure connections (HTTPS).
 							</div>
 						</div>
 					</div>
 
 					<div class="horizontal-div">
 						<div class="vertical-container">
-							<input type="checkbox" id="reflectedxss" name="reflectedxss" value="reflectedxss">
+							<input type="checkbox" id="reflectedxss" name="script" value="reflectedxss">
 							<label for="reflectedxss">Check Reflected XSS Vulnerability</label>
 							<div class="arrow"></div>
 							<div class="help">
-								This script detects vulnerabilities that could allow attackers to inject and execute malicious scripts in web applications, which are then reflected back to users' browsers, potentially leading to account compromise or data theft.
+								This script detects vulnerabilities that could allow attackers to inject and execute
+								malicious scripts in web applications, which are then reflected back to users' browsers,
+								potentially leading to account compromise or data theft.
 
 							</div>
 						</div>
 						<div class="vertical-container">
-							<input type="checkbox" id="cachecontrol" name="cachecontrol" value="cachecontrol">
+							<input type="checkbox" id="cachecontrol" name="script" value="cachecontrol">
 							<label for="cachecontrol">Check Cache Control Vulnerability</label>
 							<div class="arrow"></div>
 							<div class="help">
-								This script assesses whether the website's cache control headers are properly configured to prevent caching sensitive or private information, reducing the risk of unauthorized access to cached data.
+								This script assesses whether the website's cache control headers are properly configured
+								to prevent caching sensitive or private information, reducing the risk of unauthorized
+								access to cached data.
 							</div>
 						</div>
 						<div class="vertical-container">
-							<input type="checkbox" id="serverinfo" name="serverinfo" value="serverinfo">
+							<input type="checkbox" id="serverinfo" name="script" value="serverinfo">
 							<label for="serverinfo">Check Server Info Vulnerability</label>
 							<div class="arrow"></div>
 							<div class="help">
-								This script investigates the information exposed by the web server, such as version numbers, server software, and configuration details. It helps identify potential security risks associated with disclosing too much information to attackers.
+								This script investigates the information exposed by the web server, such as version
+								numbers, server software, and configuration details. It helps identify potential
+								security risks associated with disclosing too much information to attackers.
 							</div>
 						</div>
 						<div class="vertical-container">
-							<input type="checkbox" id="cachepositioning" name="cachepositioning" value="cachepositioning">
+							<input type="checkbox" id="cachepositioning" name="script" value="cachepositioning">
 							<label for="cachepositioning">Check Cache Positioning Vulnerability</label>
 							<div class="arrow"></div>
 							<div class="help">
-								This script examines the website for vulnerabilities related to cache poisoning, where attackers manipulate cached content to serve malicious data to users, potentially leading to various security threats such as session hijacking or data manipulation.
+								This script examines the website for vulnerabilities related to cache poisoning, where
+								attackers manipulate cached content to serve malicious data to users, potentially
+								leading to various security threats such as session hijacking or data manipulation.
 							</div>
 						</div>
 						<div class="vertical-container">
-							<input type="checkbox" id="corsvul" name="corsvul" value="corsvul">
+							<input type="checkbox" id="corsvul" name="script" value="corsvul">
 							<label for="corsvul">Check CORS Vulnerability</label>
 							<div class="arrow"></div>
 							<div class="help">
 								<div class="tooltiptext">
-									This script looks for misconfigurations in CORS policies, which could allow unauthorized access to resources hosted on a different origin (domain). Improper CORS settings can lead to data leakage or unauthorized data access between websites.
+									This script looks for misconfigurations in CORS policies, which could allow
+									unauthorized access to resources hosted on a different origin (domain). Improper
+									CORS settings can lead to data leakage or unauthorized data access between websites.
 								</div> <br>
 								<div class="online">
-									Online Resources: 
+									Online Resources:
 									<ul>
-										<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">Mozilla Developer Network: Cross-Origin Resource Sharing (CORS)</a></li>
+										<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">Mozilla
+												Developer Network: Cross-Origin Resource Sharing (CORS)</a></li>
 									</ul>
 								</div>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 			</form>
-			
+
 			<form action="">
-				<input type="submit" name="" id="">
+				<input type="submit" name="submit" id="" value="Check">
 			</form>
 		</div>
 	</div>
