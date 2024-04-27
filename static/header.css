@@ -23,13 +23,14 @@
 .logo {
 	font-family: "researcher";
 	color: white;
-	flex: 5;
+	flex: 4;
 }
 
 .navigation {
 	flex: 1;
 	display: flex;
 	justify-content: space-around;
+	padding-right: 10px;
 }
 
 .k {

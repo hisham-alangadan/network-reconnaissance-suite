@@ -4,11 +4,46 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../static/header.css">
+	<link rel="stylesheet" href="../static/output.css">
 	<title>Document</title>
 </head>
 
-<body>
-	<h1>Make a better error page</h1>
+<body class="body">
+	<div class="header">
+		<div class="logo">Network Reconnaissance Suite</div>
+		<div class="navigation">
+			<a href="/ip">
+				<button class="header-button">Restart</button>
+			</a>
+			<a href="/index">
+				<button class="header-button">Home</button>
+			</a>
+			<a href="/index">
+				<button class="header-button">About</button>
+			</a>
+			<a href="/index">
+				<button class="header-button">Help</button>
+			</a>
+		</div>
+	</div>
+
+
+	<div class="venue">
+		<div class="heading">
+			Output
+		</div>
+		<div class="display">
+			
+		</div>
+
+		<div class="output-prompt">
+			Do you want to run a script?
+		</div>
+		<form action="/output">
+			<input type="submit" value="Restart" class="submit-button" name="submit">
+		</form>
+	</div>
 </body>
 
 </html>

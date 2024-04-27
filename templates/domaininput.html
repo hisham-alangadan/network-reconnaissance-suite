@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../static/index.css">
+	<link rel="stylesheet" href="../static/domaininput.css">
 	<link rel="stylesheet" href="../static/header.css">
 	<!-- <script defer src="./scripts/ip.js"></script> -->
 	<title>Network Reconnaissance Suite</title>
@@ -12,22 +12,31 @@
 
 <body class="body">
 	<div class="header">
-		<div class="logo">
-			Network Reconnaissance Suite
-		</div>
+		<div class="logo">Network Reconnaissance Suite</div>
 		<div class="navigation">
-			<button class="header-button">About</button>
-			<button class="header-button">Help</button>
+			<a href="/ip">
+				<button class="header-button">Restart</button>
+			</a>
+			<a href="/index">
+				<button class="header-button">Home</button>
+			</a>
+			<a href="/index">
+				<button class="header-button">About</button>
+			</a>
+			<a href="/index">
+				<button class="header-button">Help</button>
+			</a>
 		</div>
 	</div>
-	<div class="venue-ip">
-		<div class="text1">
+
+	<div class="venue">
+		<div class="text">
 			Enter the domain name:
 		</div>
         <div class="input-and-submit">
-            <!-- <input type="text" id="ip-input" class="ip-input" minlength="7" maxlength="15" size="12" placeholder="xxx.xxx.xxx.xxx" autocomplete="off"> -->
+            <!-- <input type="text" id="ip-input" class="input" minlength="7" maxlength="15" size="12" placeholder="xxx.xxx.xxx.xxx" autocomplete="off"> -->
             <form action="/domain" method="POST">
-                <input type="text" id="domain" class="ip-input"
+                <input type="text" id="domain" class="input"
 				placeholder="google.com" autocomplete="off" name="ip">
                 <input type="submit" value="Scan" name="scan" class="submit">
             </form>
