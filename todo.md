@@ -6,6 +6,7 @@
 - anything following the mouse
 - animations like [fds](https://www.mentimeter.com/features/quiz-presentations)
 - https://www.typeform.com/quizzes/ logo
+- animate index
 
 _Scan types_
 

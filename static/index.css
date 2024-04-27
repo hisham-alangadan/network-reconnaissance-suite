@@ -134,6 +134,12 @@
 	margin: 0;
 }
 
+.bodyi > div {
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100%;
+}
+
 .headeri {
     padding-top: 50px;
     padding-left: 30px;
@@ -142,8 +148,7 @@
     /* align-items: center;
     justify-content: center; */
     background-color: black;
-    height: 80vh;
-    width: 100%;
+
 }
 
 .huge-logo {
@@ -154,7 +159,7 @@
 }
 
 .start-button {
-    padding-top: 90px;
+    padding-top: 30vh;
     /* display: flex; */
     margin-left: calc(40%);
 }
@@ -168,6 +173,51 @@
     border: none;
 }
 
-.about-members {
-    height: auto;
+img {
+    width: 40vw;
+    border-radius: 20px;
+}
+
+.intro-text {
+    margin-right: 40px;
+}
+
+.split-intro {
+    display: flex;
+    height: 100%;
+    font-family: monospace;
+    font-size: 30px;
+}
+
+.split-intro > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.intro2 {
+    background-color: black;
+    color: white;
+}
+
+
+footer {
+    background-color: grey;
+    padding: 50px;
+}
+
+.split-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.split-footer > div {
+    flex: 1;
+}
+
+.tiny-logo {
+    font-family: "researcher";
+    font-size: 15px;
 }
