@@ -126,6 +126,19 @@
     font-family: monospace;
 }
 
+/* protocol.html file */
+
+.tcp-button, .udp-button {
+    border: 1px solid red;
+    border-radius: 40px;
+    background-color: transparent;
+    color: white;
+    font-family: monospace;
+    font-size: 20px;
+    margin: 20px;
+    padding: 10px 20px;
+}
+
 /* index.html file*/
 
 .bodyi {

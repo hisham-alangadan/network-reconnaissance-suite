@@ -13,15 +13,14 @@
     font-family: monospace;
     color: lightgreen;
     font-size: 50px;
-    padding-top: 4vh;
-    padding-bottom: 4vh;
+    padding-top: 8vh;
+    padding-bottom: 5vh;
+    margin-bottom: 5vh;
 }
-
 
 .main-block {
     display: flex;
     flex-direction: row;
-    color: white;
 }
 
 .main-block > div {
@@ -32,21 +31,20 @@
 
 .vertical-container {
     user-select: none;
-    /* display: flex; */
-    height: 40px;
-    border-radius: 20px;
-    background-color: transparent;
     color: lightgreen;
-    font-family: monospace;
-    font-size: 17px;
-    /* border: 1px solid rgba(144, 238, 144, 0.5); */
     margin-bottom: 20px;
     position: inherit;
 }
 
-/* .vertical-container > input {
-    position: absolute;
-} */
+div > button {
+    border: 1px solid rgb(151, 42, 42);
+    border-radius: 40px;
+    background-color: transparent;
+    color: white;
+    font-family: monospace;
+    font-size: 20px;
+    padding: 10px;
+}
 
 .arrow {
     visibility: hidden;
@@ -70,6 +68,8 @@
     border-radius: 20px;
     padding: 10px;
     margin-top: 15px;
+    font-family: monospace;
+    font-size: 17px;
 }
 
 .vertical-container:hover .help {
@@ -89,30 +89,4 @@
 .online {
     font-weight: bold;
     font-size: 14px;
-}
-
-.check {
-    border: 1px solid red;
-    background-color: transparent;
-    color: lightgreen;
-    font-family: monospace;
-    font-size: 20px;
-    border-radius: 20px;
-    padding: 8px;
-}
-
-input[type="checkbox"] {
-    appearance: none;
-    background-color: transparent;
-    border: 1px solid red;
-    border-radius: 2px;
-    width: 15px;
-    height: 15px;
-    margin-bottom: -2px;
-}
-
-input[type="checkbox"]:checked {
-    transform-origin: bottom left;
-    background-color: red;
-    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }

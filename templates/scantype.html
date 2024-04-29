@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../static/index.css">
+	<link rel="stylesheet" href="../static/scantype.css">
 	<link rel="stylesheet" href="../static/header.css">
 	<title>Flags</title>
 </head>
@@ -26,17 +26,138 @@
 			</a>
 		</div>
 	</div>
-	<div class="venue-protocol">
-			<div class="text1">
-				Please select the scan type:
-			</div>
-			<div class="flags">
-				<button onclick=f_syn()>SYN</button>
-				<button onclick=f_ack()>ACK</button>
-				<button onclick=f_fin()>FIN</button>
-			<button onclick=f_rst()>RST</button>
-			<button onclick=f_urg()>URG</button>
-			<button onclick=f_psh()>PSH</button>
+	<div class="venue">
+		<div class="heading">
+			Please select the scan type:
+		</div>
+		<div class="scripts">
+			<form action="/scantype" method="POST">
+				<div class="main-block">
+
+					<div class="horizontal-div">
+						<div class="vertical-container">
+							<button>Syn Scan</button>
+							<div class="arrow"></div>
+							<div class="help">
+								This scan type sends SYN packets to the target ports and analyzes the responses to determine if the ports are open, closed, or filtered. It's stealthy and efficient, as it doesn't complete the TCP handshake.
+								<div class="online">
+									<br>Online Resources:
+									<ul>
+										<li><a href="https://wiki.wireshark.org/SYN_Scan">Wireshark Wiki: SYN Scan</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="vertical-container">
+							<button>X-mas Scan</button>
+							<div class="arrow"></div>
+							<div class="help">
+								In an XMAS scan, the scanner sends packets with the FIN, URG, and PUSH flags set, effectively lighting up the target's ports like a Christmas tree. It's used to detect open ports on the target system.
+								<div class="online">
+									<br>Online Resources:
+									<ul>
+										<li><a href="https://isc.sans.edu/diary/The+Xmas+Scan/2428">SANS Internet Storm Center: XMAS Scan</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="vertical-container">
+							<button>TCP Connect</button>
+							<div class="arrow"></div>
+							<div class="help">
+								This scan type performs a full TCP connection to each specified port on the target, establishing a connection with open ports and recording the response. It's reliable but less stealthy compared to SYN scanning.
+								<div class="online">
+									<br>Online Resources:
+									<ul>
+										<li><a href="https://www.tcpipguide.com/free/t_TCPConnectScan.htm">TCP/IP Guide: TCP Connect Scan</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="vertical-container">
+							<button>UDP Scan</button>
+							<div class="arrow"></div>
+							<div class="help">
+								UDP scanning involves sending UDP packets to target ports and analyzing the responses. Since UDP is connectionless, the scanner doesn't expect acknowledgments and determines open ports based on responses or lack thereof.
+								<div class="online">
+									<br>Online Resources:
+									<ul>
+										<li><a href="https://isc.sans.edu/diary/Nmap+and+UDP+Scanning/10473">SANS Internet Storm Center: UDP Scan</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="vertical-container">
+							<button>FIN Scan</button>
+							<div class="arrow"></div>
+							<div class="help">
+								In a FIN scan, the scanner sends packets with only the FIN flag set. It's used to determine if ports are open or closed based on how the target's system responds to these packets.
+								<div class="online">
+									<br>Online Resources:
+									<ul>
+										<li><a href="https://isc.sans.edu/diary/Port+scanning+using+the+FIN+bit/7354">SANS Internet Storm Center: FIN Scan</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="horizontal-div">
+						<div class="vertical-container">
+							<button>ACK Scan</button>
+							<div class="arrow"></div>
+							<div class="help">
+								This scan type sends packets with only the ACK flag set. It's primarily used to determine if a firewall is present and filtering traffic based on ACK responses.
+								<div class="online">
+									<br>Online Resources:
+									<ul>
+										<li><a href="https://resources.infosecinstitute.com/topic/nmaps-ack-scan-a-stealthy-port-scanning/">Nmap's ACK scan: A Stealthy Port Scanning</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="vertical-container">
+							<button>NULL Scan</button>
+							<div class="arrow"></div>
+							<div class="help">
+								In a NULL scan, the scanner sends packets with no flags set (NULL packets) to the target ports. It relies on how the target system responds to these packets to determine port status.
+								<div class="online">
+									<br>Online Resources:
+									<ul>
+										<li><a href="https://www.offensive-security.com/metasploit-unleashed/null-scan/">Null Scan</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="vertical-container">
+							<button>RPC Scan</button>
+							<div class="arrow"></div>
+							<div class="help">
+								RPC scanning involves querying RPC (Remote Procedure Call) services running on target systems to identify vulnerabilities or gather information about exposed services.
+								<div class="online">
+									<br>Online Resources:
+									<ul>
+										<li><a href="https://isc.sans.edu/diary/Port+scan+on+port+111+of+Internet+hosts+for+rpcbind+-+how+to+find+it+and+how+to+use+it+to+gain+access+to+the+host/7476">SANS Internet Storm Center: RPC Scan</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="vertical-container">
+							<button>IDLE Scan</button>
+							<div class="arrow"></div>
+							<div class="help">
+								An IDLE scan is a stealthy method where the scanner uses a third-party system (often referred to as a zombie host) to send packets to the target. It relies on the differences in IPID sequences to determine open ports on the target.
+								<div class="online">
+									<br>Online Resources:
+									<ul>
+										<li><a href="https://www.offensive-security.com/metasploit-unleashed/idle-scan/">Idle Scan</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
 		</div>
 	</div>
 </body>

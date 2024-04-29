@@ -1,0 +1,55 @@
+.venue {
+    background-color: rgb(0, 0, 59);
+    height: auto;
+    width: 94vw;
+    min-height: 84vh;
+    padding-top: 6vh;
+    padding-left: 6vw;
+    padding-bottom: 6vw;
+}
+
+.heading {
+    font-family: monospace;
+    color: red;
+    font-size: 50px;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+}
+
+.display {
+    width: 86vw;
+    min-height: 50vh;
+    background-color: rgb(255, 194, 194);
+    border-radius: 20px;
+    color: rgb(0, 0, 39);
+    padding: 1vw;
+}
+
+.output-prompt {
+    color: rgb(141, 215, 141);
+    font-family: monospace;
+    font-size: 20px;
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+.submit-button {
+    border: none;
+    font-family: monospace;
+    background-color: rgb(141, 215, 141);
+    border-radius: 5px;
+    color: rgb(0, 0, 39);
+    width: 40px;
+}
+
+.display {
+    font-family: monospace;
+}
+
+.open {
+    color: green;
+}
+
+.closed {
+    color: red;
+}

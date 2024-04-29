@@ -47,6 +47,13 @@
 								This script verifies the validity and security of an SSL certificate installed on a
 								website or server. It ensures that the certificate is properly configured and up to
 								date, providing encryption and authentication for secure connections.
+								<div class="online">
+									<br>Online Resources:
+									<ul>
+										<li><a href="https://www.ssl.com/faqs/what-is-ssl-tls/">SSL.com: What is SSL/TLS?</a></li>
+										<li><a href="https://letsencrypt.org/docs/what-is-ssl-tls-and-https/">Let's Encrypt: What is SSL?</a></li>
+									</ul>
+								</div>
 							</div>
 						</div>
 						<div class="vertical-container">
@@ -58,6 +65,13 @@
 								scripts into web pages viewed by other users. It helps identify and mitigate XSS
 								vulnerabilities, which can lead to unauthorized access, data theft, and other security
 								risks.
+								<div class="online">
+									<br>Online Resources:
+									<ul>
+										<li><a href="https://owasp.org/www-community/attacks/xss/">OWASP: Cross-Site Scripting (XSS)</a></li>
+										<li><a href="https://developer.mozilla.org/en-US/docs/Web/Security/Types_of_attacks#cross-site_scripting_xss">MDN Web Docs: Cross-Site Scripting (XSS)</a></li>
+									</ul>
+								</div>
 							</div>
 						</div>
 						<div class="vertical-container">
@@ -67,8 +81,14 @@
 							<div class="help">
 								This script examines the website for potential clickjacking vulnerabilities, where
 								attackers can trick users into clicking on unintended elements or buttons, leading to
-								unauthorized actions or information disclosure.
-
+								unauthorized actions or information disclosure. 
+								<div class="online">
+									<br>Online Resources:
+									<ul>
+										<li><a href="https://owasp.org/www-community/attacks/Clickjacking">OWASP: Clickjacking</a></li>
+										<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Clickjacking">Mozilla Developer Network: Clickjacking</a></li>
+									</ul>
+								</div>
 							</div>
 						</div>
 						<div class="vertical-container">
@@ -79,8 +99,13 @@
 								This script checks for insecure mixed content on web pages, where secure (HTTPS) pages
 								include non-secure (HTTP) resources such as images, scripts, or stylesheets. Such mixed
 								content can compromise the security of the entire page and leave it vulnerable to
-								various attacks.
-
+								various attacks. 
+								<div class="online">
+									<br>Online Resources:
+									<ul>
+										<li><a href="https://developers.google.com/web/fundamentals/security/prevent-mixed-content/what-is-mixed-content">Google Developers: Mixed Content</a></li>
+									</ul>
+								</div>
 							</div>
 						</div>
 						<div class="vertical-container">
@@ -91,6 +116,12 @@
 								This script evaluates whether the website implements HSTS, a security policy mechanism
 								that helps protect websites against man-in-the-middle attacks and cookie hijacking by
 								forcing secure connections (HTTPS).
+								<div class="online">
+									<br>Online Resources:
+									<ul>
+										<li><a href="https://owasp.org/www-project-secure-headers/#http-strict-transport-security">OWASP: HTTP Strict Transport Security (HSTS)</a></li>
+									</ul>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -103,8 +134,14 @@
 							<div class="help">
 								This script detects vulnerabilities that could allow attackers to inject and execute
 								malicious scripts in web applications, which are then reflected back to users' browsers,
-								potentially leading to account compromise or data theft.
-
+								potentially leading to account compromise or data theft. 
+								<div class="online">
+									<br>Online Resources:
+									<ul>
+										<li><a href="https://owasp.org/www-community/attacks/xss/#reflected-xss-rxss">OWASP: Reflected XSS</a></li>
+										<li><a href="https://portswigger.net/web-security/cross-site-scripting">PortSwigger: Cross-site Scripting (XSS)</a></li>
+									</ul>
+								</div>
 							</div>
 						</div>
 						<div class="vertical-container">
@@ -114,7 +151,13 @@
 							<div class="help">
 								This script assesses whether the website's cache control headers are properly configured
 								to prevent caching sensitive or private information, reducing the risk of unauthorized
-								access to cached data.
+								access to cached data. 
+								<div class="online">
+									<br>Online Resources:
+									<ul>
+										<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching">MDN Web Docs: Caching</a></li>
+									</ul>
+								</div>
 							</div>
 						</div>
 						<div class="vertical-container">
@@ -125,16 +168,29 @@
 								This script investigates the information exposed by the web server, such as version
 								numbers, server software, and configuration details. It helps identify potential
 								security risks associated with disclosing too much information to attackers.
+								<div class="online">
+									<br>Online Resources:
+									<ul>
+										<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration">OWASP: Information Leakage</a></li>
+										<li><a href="https://csrc.nist.gov/publications/detail/sp/800-123/rev-2/final">NIST: Guide to General Server Security</a></li>
+									</ul>
+								</div>
 							</div>
 						</div>
 						<div class="vertical-container">
 							<input type="checkbox" id="cachepositioning" name="script" value="cachepositioning">
-							<label for="cachepositioning">Check Cache Positioning Vulnerability</label>
+							<label for="cachepositioning">Check Cache Poisoning Vulnerability</label>
 							<div class="arrow"></div>
 							<div class="help">
 								This script examines the website for vulnerabilities related to cache poisoning, where
 								attackers manipulate cached content to serve malicious data to users, potentially
-								leading to various security threats such as session hijacking or data manipulation.
+								leading to various security threats such as session hijacking or data manipulation. 
+								<div class="online">
+									<br>Online Resources:
+									<ul>
+										<li><a href="https://owasp.org/www-community/attacks/Cache_Poisoning">OWASP: Cache Poisoning</a></li>
+									</ul>
+								</div>
 							</div>
 						</div>
 						<div class="vertical-container">
@@ -150,8 +206,8 @@
 								<div class="online">
 									Online Resources:
 									<ul>
-										<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">Mozilla
-												Developer Network: Cross-Origin Resource Sharing (CORS)</a></li>
+										<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">Mozilla 								Developer Network: Cross-Origin Resource Sharing (CORS)</a></li>
+										<li><a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">MDN Web Docs: Same-origin Policy</a></li>
 									</ul>
 								</div>
 							</div>
@@ -162,7 +218,7 @@
 			</form>
 
 			<form action="">
-				<input type="submit" name="submit" id="" value="Check">
+				<input type="submit" name="submit" id="" class="check" value="Check">
 			</form>
 		</div>
 	</div>

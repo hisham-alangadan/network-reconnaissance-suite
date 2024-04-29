@@ -69,3 +69,11 @@
     left: 20px;
     top: -4px;
 }
+
+.error {
+    color: red;
+    font-family: monospace;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 20px;
+}
