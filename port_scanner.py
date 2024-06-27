@@ -189,97 +189,6 @@ def check_xss(domain_name, target_port):
     except Exception as e:
         print(f"Error occurred during XSS vulnerability check: {e}")
 
-
-def check_clickjacking(headers):
-    try:
-        script_path = "C:\\Users\\Sonu George\\Desktop\\PROJECT\\check_clickjacking.py"  # Path to check_clickjacking.py
-        subprocess_arguments = ["python", script_path, headers]
-        result = subprocess.run(subprocess_arguments, capture_output=True, text=True)
-        print(result.stdout)
-    except Exception as e:
-        print(f"Error occurred during Clickjacking vulnerability check: {e}")
-
-
-def check_insecure_mixed_content(headers):
-    try:
-        script_path = "C:\\Users\\Sonu George\\Desktop\\PROJECT\\check_insecure_mixed_content.py"  # Path to check_insecure_mixed_content.py
-        subprocess_arguments = ["python", script_path, headers]
-        result = subprocess.run(subprocess_arguments, capture_output=True, text=True)
-        print(result.stdout)
-    except Exception as e:
-        print(f"Error occurred during Insecure Mixed Content vulnerability check: {e}")
-
-
-def check_hsts_vulnerability(headers):
-    try:
-        script_path = "C:\\Users\\Sonu George\\Desktop\\PROJECT\\check_hsts_vulnerability.py"  # Path to check_hsts_vulnerability.py
-        subprocess_arguments = ["python", script_path, headers]
-        result = subprocess.run(subprocess_arguments, capture_output=True, text=True)
-        print(result.stdout)
-    except Exception as e:
-        print(f"Error occurred during HSTS vulnerability check: {e}")
-
-
-def check_reflected_xss_vulnerability(headers):
-    try:
-        script_path = "C:\\Users\\Sonu George\\Desktop\\PROJECT\\check_reflected_xss_vulnerability.py"  # Path to check_reflected_xss_vulnerability.py
-        subprocess_arguments = ["python", script_path, headers]
-        result = subprocess.run(subprocess_arguments, capture_output=True, text=True)
-        print(result.stdout)
-    except Exception as e:
-        print(f"Error occurred during Reflected XSS vulnerability check: {e}")
-
-
-def check_cache_control_vulnerability(headers):
-    try:
-        script_path = "C:\\Users\\Sonu George\\Desktop\\PROJECT\\check_cache_control_vulnerability.py"  # Path to check_cache_control_vulnerability.py
-        subprocess_arguments = ["python", script_path, headers]
-        result = subprocess.run(subprocess_arguments, capture_output=True, text=True)
-        print(result.stdout)
-    except Exception as e:
-        print(f"Error occurred during Cache Control vulnerability check: {e}")
-
-
-def check_server_info_vulnerability(headers):
-    try:
-        script_path = "C:\\Users\\Sonu George\\Desktop\\PROJECT\\check_server_info_vulnerability.py"  # Path to check_server_info_vulnerability.py
-        subprocess_arguments = ["python", script_path, headers]
-        result = subprocess.run(subprocess_arguments, capture_output=True, text=True)
-        print(result.stdout)
-    except Exception as e:
-        print(
-            f"Error occurred during Server Information Leakage vulnerability check: {e}"
-        )
-
-
-def check_cache_poisoning_vulnerability(headers):
-    try:
-        script_path = "C:\\Users\\Sonu George\\Desktop\\PROJECT\\check_cache_poisoning_vulnerability.py"  # Path to check_cache_poisoning_vulnerability.py
-        subprocess_arguments = ["python", script_path, headers]
-        result = subprocess.run(subprocess_arguments, capture_output=True, text=True)
-        print(result.stdout)
-    except Exception as e:
-        print(f"Error occurred during Cache Poisoning vulnerability check: {e}")
-
-
-def check_cors_vulnerability(headers):
-    try:
-        script_path = "C:\\Users\\Sonu George\\Desktop\\PROJECT\\check_cors_vulnerability.py"  # Path to check_cors_vulnerability.py
-        subprocess_arguments = ["python", script_path, headers]
-        result = subprocess.run(subprocess_arguments, capture_output=True, text=True)
-        print(result.stdout)
-    except Exception as e:
-        print(f"Error occurred during CORS vulnerability check: {e}")
-
-
-# #This fn is placed here by DarkMarshall here during testing, DON'T DELETE/EDIT
-# def ip_to_domain(ip_address):
-#     try:
-#         domain_name = socket.gethostbyaddr(ip_address)[0]
-#         return domain_name
-#     except socket.herror as e:
-#         return ip_address
-
 if __name__ == "__main__":
     target_host = input("Enter the target host/IP address: ")
     if check_host(target_host):
@@ -313,11 +222,3 @@ if __name__ == "__main__":
         headers = detect_version(target_host, target_port)
         check_ssl_certificate(domain_name, target_port)
         check_xss(domain_name, target_port)
-        check_clickjacking(headers)
-        check_insecure_mixed_content(headers)
-        check_hsts_vulnerability(headers)
-        check_reflected_xss_vulnerability(headers)
-        check_cache_control_vulnerability(headers)
-        check_server_info_vulnerability(headers)
-        check_cache_poisoning_vulnerability(headers)
-        check_cors_vulnerability(headers)
