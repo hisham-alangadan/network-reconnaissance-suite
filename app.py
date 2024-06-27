@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
-from port_scanner import check_host, port_scan, check_ssl_certificate
+from port_scanner import *
+from scan_scripts.scripts import *
 import json
 
 app = Flask(__name__)
@@ -79,9 +80,29 @@ def script():
     elif request.method == "POST":
         if request.form.get("submit") == "Check":
             script_list = request.form.getlist("script")
-            for script in script:
-                if script == "ssl_check":
-                    return redirect(url_for("domaininput"))
+            print(script_list)
+            output = []
+            for script in script_list:
+                headers = detect_version(ip, 80)
+                if script == "clickjacking":
+                    output.append(check_clickjacking_vulnerability(headers))
+                    print(output)
+                elif script == "insecuremc":
+                    output.append(check_insecure_mixed_content(headers))
+                    print(output)
+            return json.dumps(output)
+
+
+# @app.route("/script", methods=["GET", "POST"])
+# def script():
+#     if request.method == "GET":
+#         return render_template("script.html")
+#     elif request.method == "POST":
+#         if request.form.get("submit") == "Check":
+#             script_list = request.form.getlist("script")
+#             for script in script:
+#                 if script == "ssl_check":
+#                     return redirect(url_for("domaininput"))
 
 
 # @app.route("/domain", methods=["GET", "POST"])
@@ -93,6 +114,7 @@ def script():
 #             domain = request.form.get("ip")
 #             result = check_ssl_certificate(domain, 443)
 # 			return render_template("output")
+
 
 @app.route("/error", methods=["GET"])
 def error():
