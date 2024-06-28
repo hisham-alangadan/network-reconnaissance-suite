@@ -8,6 +8,10 @@
 - https://www.typeform.com/quizzes/ logo
 - animate index
 
+- Centering the start button and ip field (responsive)
+- cursor on ip and port input fields
+
+
 _Scan types_
 
 - syn scan
