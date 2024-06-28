@@ -153,15 +153,6 @@ def port_scan(host, start_port, end_port, tcp_flags=None, udp_flag=False):
         thread.start()
     for thread in threads:
         thread.join()
-    # print("\nOpen ports:")
-    # for port, service in open_ports:
-    #     print(f"Port {port} ({service}) {Fore.GREEN}OPEN{Style.RESET_ALL}")
-    # print("\nClosed ports:")
-    # for port, service in sorted(closed_ports):
-    #     print(f"Port {port} ({service}) {Fore.RED}CLOSED{Style.RESET_ALL}")
-    # print("\nFiltered ports:")
-    # for port, service in sorted(filtered_ports):
-    #     print(f"Port {port} ({service}) {Fore.YELLOW}FILTERED{Style.RESET_ALL}")
     # print("\nOperating System Guesses:")
     # for port, os_guess in os_guesses:
     #     print(f"Port {port}: {Fore.GREEN}{os_guess}{Style.RESET_ALL}")
