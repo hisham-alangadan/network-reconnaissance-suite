@@ -1,3 +1,4 @@
 .mini-project_venv/
 __pycache__/
 scan_scripts/__pycache__/
+.env

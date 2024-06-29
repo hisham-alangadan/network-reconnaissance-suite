@@ -1,9 +1,14 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from port_scanner import *
 from scan_scripts.scripts import *
 import json
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
+app.secret_key = os.getenv("SECRET_KEY")
 
 
 @app.route("/", methods=["GET"])
@@ -44,13 +49,19 @@ def port():
             open_ports_json = json.dumps(open_ports)
             closed_ports_json = json.dumps(closed_ports)
             filtered_ports_json = json.dumps(filtered_ports)
-            # print(type(open_ports))
+
+            port_scan_results = [
+                open_ports_json,
+                closed_ports_json,
+                filtered_ports_json,
+            ]
+            session["port_scan_results"] = port_scan_results
             return redirect(
                 url_for(
-                    "output",
-                    open_ports=open_ports_json,
-                    closed_ports=closed_ports_json,
-                    filtered_ports=filtered_ports_json,
+                    "output"
+                    # open_ports=open_ports_json,
+                    # closed_ports=closed_ports_json,
+                    # filtered_ports=filtered_ports_json,
                 )
             )
 
@@ -58,10 +69,14 @@ def port():
 @app.route("/output", methods=["GET", "POST"])
 def output():
     if request.method == "GET":
-        open_ports = json.loads(request.args.get("open_ports"))
-        closed_ports = json.loads(request.args.get("closed_ports"))
-        filtered_ports = json.loads(request.args.get("filtered_ports"))
-        print(open_ports)
+        # open_ports = json.loads(request.args.get("open_ports"))
+        # closed_ports = json.loads(request.args.get("closed_ports"))
+        # filtered_ports = json.loads(request.args.get("filtered_ports"))
+        port_scan_results = session.pop("port_scan_results", None)
+        print(type(port_scan_results))
+        open_ports = json.loads(port_scan_results[0])
+        closed_ports = json.loads(port_scan_results[1])
+        filtered_ports = json.loads(port_scan_results[2])
         return render_template(
             "output.html",
             open_ports=open_ports,
@@ -86,10 +101,20 @@ def script():
                 headers = detect_version(ip, 80)
                 if script == "clickjacking":
                     output.append(check_clickjacking_vulnerability(headers))
-                    print(output)
                 elif script == "insecuremc":
                     output.append(check_insecure_mixed_content(headers))
-                    print(output)
+                elif script == "hsts":
+                    output.append(check_hsts_vulnerability(headers))
+                elif script == "reflectedxss":
+                    output.append(check_reflected_xss_vulnerability(headers))
+                elif script == "cachecontrol":
+                    output.append(check_cache_control_vulnerability(headers))
+                elif script == "serverinfo":
+                    output.append(check_server_info_vulnerability(headers))
+                elif script == "cachepoisoning":
+                    output.append(check_cache_poisoning_vulnerability(headers))
+                elif script == "corsvul":
+                    output.append(check_cors_vulnerability(headers))
             return json.dumps(output)
 
 
