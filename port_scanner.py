@@ -62,6 +62,7 @@ def detect_version(host, port):
             headers = response.decode().split("\r\n\r\n")[0]
             return headers
     except Exception as e:
+        print(e)
         return None
 
 
@@ -99,10 +100,9 @@ def scan_port(
                 if version:
                     print(f"\nVersion information for Port {port}: {version}")
             if tcp_flags:
-                for flag in tcp_flags:
-                    threading.Thread(
-                        target=send_tcp_packet, args=(host, port, flag)
-                    ).start()
+                threading.Thread(
+                    target=send_tcp_packet, args=(host, port, tcp_flags)
+                ).start()
             if udp_flag:
                 threading.Thread(target=send_udp_packet, args=(host, port)).start()
         elif result == 11:  # Connection timed out (indicating filtered port)
@@ -158,58 +158,3 @@ def port_scan(host, start_port, end_port, tcp_flags=None, udp_flag=False):
     #     print(f"Port {port}: {Fore.GREEN}{os_guess}{Style.RESET_ALL}")
     #     print("\n")
     return sorted(open_ports), sorted(closed_ports), sorted(filtered_ports)
-
-
-def check_ssl_certificate(host, port):
-    try:
-        script_path = "scan_scripts/ssl_cert_check.py"  # Path to ssl_cert_check.py
-        subprocess_arguments = ["python", script_path, host, str(port)]
-        result = subprocess.run(subprocess_arguments, capture_output=True, text=True)
-        # print(result.stdout)
-        return result.stdout
-    except Exception as e:
-        print(f"Error occurred during SSL certificate check: {e}")
-
-
-def check_xss(domain_name, target_port):
-    try:
-        script_path = "C:\\Users\\Sonu George\\Desktop\\PROJECT\\check_xss.py"  # Path to check_xss.py
-        subprocess_arguments = ["python", script_path, domain_name, str(target_port)]
-        result = subprocess.run(subprocess_arguments, capture_output=True, text=True)
-        print(result.stdout)
-    except Exception as e:
-        print(f"Error occurred during XSS vulnerability check: {e}")
-
-if __name__ == "__main__":
-    target_host = input("Enter the target host/IP address: ")
-    if check_host(target_host):
-        start_port = int(input("Enter the starting port: "))
-        end_port = int(input("Enter the ending port: "))
-        protocol = input("Choose protocol (TCP/UDP): ").upper()
-        if protocol == "UDP":
-            udp_flag = True
-            tcp_flags = None
-        else:
-            udp_flag = False
-            tcp_flags_input = input(
-                "Enter TCP flags to send (comma-separated, e.g., SYN,ACK): "
-            ).upper()
-            tcp_flags = [
-                flag.strip()
-                for flag in tcp_flags_input.split(",")
-                if flag.strip() in ("S", "A", "F", "R", "P", "U")
-            ]
-        port_scan(target_host, start_port, end_port, tcp_flags, udp_flag)
-
-        for thread in threading.enumerate():
-            if thread != threading.current_thread():
-                thread.join()
-
-        print("\n")
-        print("Starting Vulnerability Checks...")
-        # domain_name = ip_to_domain(target_host)
-        domain_name = input("Enter the domain name for vuln check: ")
-        target_port = int(input("Enter the port vuln check: "))
-        headers = detect_version(target_host, target_port)
-        check_ssl_certificate(domain_name, target_port)
-        check_xss(domain_name, target_port)
