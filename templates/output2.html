@@ -33,6 +33,16 @@
 			Output
 		</div>
 		<div class="display">
+			<!-- Add ssl output here -->
+			<div class="black">
+				<h3>SSL Certificate Details</h3>
+				Issuer : {{ssl_cert["Issuer"]}}
+				<br>
+				Subject : {{ssl_cert["Subject"]}}
+				<br>
+				Expiry Date : {{ssl_cert["Expiry Date"]}}
+				<br>
+			</div>
 			<div class="red">
 				<h3>High Risk</h3>
 				{% for result in script_results%}
