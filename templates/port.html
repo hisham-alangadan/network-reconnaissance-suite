@@ -21,18 +21,18 @@
 		<button class="header-button">Help</button>
 	</div>
 	<div class="venue">
-		<div class="text1">Enter the port range:</div>
-		<div class="port-input">
-			<form action="/port" method="POST">
+		<form action="/port" method="POST">
+			<div class="text1">Enter the port range:</div>
+			<div class="port-input">
 				<input type="text" placeholder="00000" id="start-port-input" name="start_port">
 				<span class="to">to</span>
 				<input type="text" placeholder="00000" id="end-port-input" name="end_port">
-				</form>
-				</div>
+			</div>
 			<input type="submit" id="submit-button" class="submit-button"  value="Submit">
-		<div class="error">
-			<!-- Parse the error here -->
-		</div>
+		</form>
+	<div class="error">
+		<!-- Parse the error here -->
+	</div>
 	</div>
 </body>
 

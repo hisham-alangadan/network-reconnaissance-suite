@@ -33,36 +33,19 @@
 			Output
 		</div>
 		<div class="display">
-			<div class="open">
-				<h3>Open Ports</h3>
-				{% for port in open_ports%}
-				{% if port[1] != 'unknown'%}
-				Port {{port[0]}} ({{port[1]}}) OPEN
-				{%endif%}
-				<br>
-				{%endfor%}
+			<div class="red">
+				<h3>Red Stuff</h3>
+				I am red
 			</div>
-			<div class="closed">
-				<h3>Closed Ports</h3>
-				{% for port in closed_ports%}
-				Port {{port[0]}} ({{port[1]}}) CLOSED
-				<br><br>
-				{%endfor%}
+			<div class="green">
+				<h3>Green Stuff</h3>
+				i am green
 			</div>
-			<h3>Filtered Ports</h3>
-			{% for port in filtered_ports%}
-			Port {{port[0]}} ({{port[1]}}) FILTERED
-			<br><br>
-			{%endfor%}
-			<!-- {{open_ports}} -->
+			<div class="black">
+				<h3>Black Stuff</h3>
+				i am black
+			</div>
 		</div>
-
-		<div class="output-prompt">
-			Do you want to run a script?
-		</div>
-		<form action="/output" method="POST">
-			<input type="submit" value="Yes" class="submit-button" name="submit">
-		</form>
 	</div>
 
 
