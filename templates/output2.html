@@ -34,16 +34,46 @@
 		</div>
 		<div class="display">
 			<div class="red">
-				<h3>Red Stuff</h3>
-				I am red
+				<h3>High Risk</h3>
+				{% for result in script_results%}
+				{% if result["risk"] == 'High'%}
+				Name : {{result["name"]}}
+				<br>
+				Description : {{result["description"]}}
+				<br>
+				Evidence : {{result["evidence"]}}
+				<br>
+				{%endif%}
+				<br>
+				{%endfor%}
+			</div>
+			<div class="orange">
+				<h3>Medium Risk</h3>
+				{% for result in script_results%}
+				{% if result["risk"] == 'Medium'%}
+				Name : {{result["name"]}}
+				<br>
+				Description : {{result["description"]}}
+				<br>
+				Evidence : {{result["evidence"]}}
+				<br>
+				{%endif%}
+				<br>
+				{%endfor%}
 			</div>
 			<div class="green">
-				<h3>Green Stuff</h3>
-				i am green
-			</div>
-			<div class="black">
-				<h3>Black Stuff</h3>
-				i am black
+				<h3>Low Risk</h3>
+				{% for result in script_results%}
+				{% if result["risk"] == 'None'%}
+				Name : {{result["name"]}}
+				<br>
+				Description : {{result["description"]}}
+				<br>
+				Evidence : {{result["evidence"]}}
+				<br>
+				{%endif%}
+				<br>
+				{%endfor%}
 			</div>
 		</div>
 	</div>
