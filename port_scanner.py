@@ -62,6 +62,7 @@ def detect_version(host, port):
             headers = response.decode().split("\r\n\r\n")[0]
             return headers
     except Exception as e:
+        print(e)
         return None
 
 
@@ -99,10 +100,9 @@ def scan_port(
                 if version:
                     print(f"\nVersion information for Port {port}: {version}")
             if tcp_flags:
-                for flag in tcp_flags:
-                    threading.Thread(
-                        target=send_tcp_packet, args=(host, port, flag)
-                    ).start()
+                threading.Thread(
+                    target=send_tcp_packet, args=(host, port, tcp_flags)
+                ).start()
             if udp_flag:
                 threading.Thread(target=send_udp_packet, args=(host, port)).start()
         elif result == 11:  # Connection timed out (indicating filtered port)
@@ -179,6 +179,7 @@ def check_xss(domain_name, target_port):
         print(result.stdout)
     except Exception as e:
         print(f"Error occurred during XSS vulnerability check: {e}")
+
 
 if __name__ == "__main__":
     target_host = input("Enter the target host/IP address: ")
