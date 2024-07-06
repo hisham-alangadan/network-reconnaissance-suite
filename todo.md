@@ -26,6 +26,7 @@
 -   parse script output in html page
 -   Handle Scripts for SSL cert check and XSS vuln (figure out domain conversion/input)
 -   Clean up main modules. Remove init code, redundant code, print() etc
+-	No Closed ports. why?
 
 _Scan types_
 
