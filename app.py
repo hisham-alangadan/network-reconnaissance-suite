@@ -127,6 +127,11 @@ def script():
             script_list = request.form.getlist("script")
             print(script_list)
             output = []
+            ssl_cert = {
+                "Issuer": "N/A",
+                "Subject": "N/A",
+                "Expiry Date": "N/A",
+            }
             for script in script_list:
                 headers = detect_version(ip, 80)
                 if script == "clickjacking":
@@ -145,6 +150,11 @@ def script():
                     output.append(check_cache_poisoning_vulnerability(headers))
                 elif script == "corsvul":
                     output.append(check_cors_vulnerability(headers))
+                elif script == "xss":
+                    output.append(check_xss_vulnerability(headers))
+                elif script == "sslcertificate":
+                    ssl_cert = ssl_certificate_check(ip, 443)
+            session["ssl_cert"] = ssl_cert
             session["script_results"] = output
 
             return redirect(url_for("output2"))  # for script output
@@ -154,9 +164,13 @@ def script():
 def output2():
     if request.method == "GET":
         script_results = session["script_results"]
+        ssl_cert = session["ssl_cert"]
         print(script_results)
+        print(ssl_cert)
         # return script_results
-        return render_template("output2.html", script_results=script_results)
+        return render_template(
+            "output2.html", script_results=script_results, ssl_cert=ssl_cert
+        )
 
 
 # @app.route("/script", methods=["GET", "POST"])
