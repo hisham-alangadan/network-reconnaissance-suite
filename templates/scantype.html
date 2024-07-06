@@ -36,7 +36,7 @@
 
 					<div class="horizontal-div">
 						<div class="vertical-container">
-							<button>Syn Scan</button>
+							<button name="scantype" value="synscan">Syn Scan</button>
 							<div class="arrow"></div>
 							<div class="help">
 								This scan type sends SYN packets to the target ports and analyzes the responses to determine if the ports are open, closed, or filtered. It's stealthy and efficient, as it doesn't complete the TCP handshake.
@@ -49,7 +49,7 @@
 							</div>
 						</div>
 						<div class="vertical-container">
-							<button>X-mas Scan</button>
+							<button name="scantype" value="xmasscan">X-mas Scan</button>
 							<div class="arrow"></div>
 							<div class="help">
 								In an XMAS scan, the scanner sends packets with the FIN, URG, and PUSH flags set, effectively lighting up the target's ports like a Christmas tree. It's used to detect open ports on the target system.
@@ -62,7 +62,7 @@
 							</div>
 						</div>
 						<div class="vertical-container">
-							<button>TCP Connect</button>
+							<button name="scantype" value="tcpconnect">TCP Connect</button>
 							<div class="arrow"></div>
 							<div class="help">
 								This scan type performs a full TCP connection to each specified port on the target, establishing a connection with open ports and recording the response. It's reliable but less stealthy compared to SYN scanning.
@@ -75,7 +75,7 @@
 							</div>
 						</div>
 						<div class="vertical-container">
-							<button>UDP Scan</button>
+							<button name="scantype" value="udpscan">UDP Scan</button>
 							<div class="arrow"></div>
 							<div class="help">
 								UDP scanning involves sending UDP packets to target ports and analyzing the responses. Since UDP is connectionless, the scanner doesn't expect acknowledgments and determines open ports based on responses or lack thereof.
@@ -88,7 +88,7 @@
 							</div>
 						</div>
 						<div class="vertical-container">
-							<button>FIN Scan</button>
+							<button name="scantype" value="finscan">FIN Scan</button>
 							<div class="arrow"></div>
 							<div class="help">
 								In a FIN scan, the scanner sends packets with only the FIN flag set. It's used to determine if ports are open or closed based on how the target's system responds to these packets.
@@ -104,7 +104,7 @@
 					
 					<div class="horizontal-div">
 						<div class="vertical-container">
-							<button>ACK Scan</button>
+							<button name="scantype" value="ackscan">ACK Scan</button>
 							<div class="arrow"></div>
 							<div class="help">
 								This scan type sends packets with only the ACK flag set. It's primarily used to determine if a firewall is present and filtering traffic based on ACK responses.
@@ -117,7 +117,7 @@
 							</div>
 						</div>
 						<div class="vertical-container">
-							<button>NULL Scan</button>
+							<button name="scantype" value="nullscan">NULL Scan</button>
 							<div class="arrow"></div>
 							<div class="help">
 								In a NULL scan, the scanner sends packets with no flags set (NULL packets) to the target ports. It relies on how the target system responds to these packets to determine port status.
@@ -130,7 +130,7 @@
 							</div>
 						</div>
 						<div class="vertical-container">
-							<button>RPC Scan</button>
+							<button name="scantype" value="rpcscan">RPC Scan</button>
 							<div class="arrow"></div>
 							<div class="help">
 								RPC scanning involves querying RPC (Remote Procedure Call) services running on target systems to identify vulnerabilities or gather information about exposed services.
@@ -143,7 +143,7 @@
 							</div>
 						</div>
 						<div class="vertical-container">
-							<button>IDLE Scan</button>
+							<button name="scantype" value="idle-scan">IDLE Scan</button>
 							<div class="arrow"></div>
 							<div class="help">
 								An IDLE scan is a stealthy method where the scanner uses a third-party system (often referred to as a zombie host) to send packets to the target. It relies on the differences in IPID sequences to determine open ports on the target.

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../static/header.css">
+	<link rel="stylesheet" href="../static/output.css">
+	<title>Output</title>
+</head>
+
+<body class="body">
+
+	<div class="header">
+		<div class="logo">Network Reconnaissance Suite</div>
+		<div class="navigation">
+			<a href="/index">
+				<button class="header-button">Home</button>
+			</a>
+			<a href="/index">
+				<button class="header-button">About</button>
+			</a>
+			<a href="/index">
+				<button class="header-button">Help</button>
+			</a>
+		</div>
+		<div class="k"></div>
+		<!-- added this because for the life of me i cant get to move the navigation bar to the left 20px -->
+	</div>
+
+	<div class="venue">
+		<div class="heading">
+			Output
+		</div>
+		<div class="display">
+			<div class="open">
+				<h3>Open Ports</h3>
+				{% for port in open_ports%}
+				{% if port[1] != 'unknown'%}
+				Port {{port[0]}} ({{port[1]}}) OPEN
+				{%endif%}
+				<br>
+				{%endfor%}
+			</div>
+			<div class="closed">
+				<h3>Closed Ports</h3>
+				{% for port in closed_ports%}
+				Port {{port[0]}} ({{port[1]}}) CLOSED
+				<br><br>
+				{%endfor%}
+			</div>
+			<h3>Filtered Ports</h3>
+			{% for port in filtered_ports%}
+			Port {{port[0]}} ({{port[1]}}) FILTERED
+			<br><br>
+			{%endfor%}
+			<!-- {{open_ports}} -->
+		</div>
+
+		<div class="output-prompt">
+			Do you want to run a script?
+		</div>
+		<form action="/output" method="POST">
+			<input type="submit" value="Yes" class="submit-button" name="submit">
+		</form>
+	</div>
+
+
+</body>
+
+</html>

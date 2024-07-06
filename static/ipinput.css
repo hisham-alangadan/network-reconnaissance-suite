@@ -1,5 +1,4 @@
-.venue
-{
+.venue {
     box-sizing: border-box;
     background-color: rgb(0, 0, 53);
     display: flex;
@@ -10,8 +9,7 @@
     flex-direction: column;
 }
 
-.text
-{
+.text {
     overflow: hidden;
     white-space: nowrap;
     margin: 0 auto;
@@ -19,24 +17,27 @@
     font-family: monospace;
     color: white;
     padding-bottom: 30px;
-    
-    animation: typing1 3.5s steps(20,end), blink-caret 0.75s step-end infinite;
+
+    animation: typing1 3.5s steps(20, end), blink-caret 0.75s step-end infinite;
     animation-name: typing1;
     animation-duration: 2s;
     animation-delay: 0s;
     animation-iteration-count: 1;
-    animation-timing-function: steps(20,end);
+    animation-timing-function: steps(20, end);
     animation-direction: alternate;
 }
 
 @keyframes typing1 {
-    from { width: 0px }
-    to { width: 870px }
+    from {
+        width: 0px;
+    }
+    to {
+        width: 870px;
+    }
 }
 
-.ip-input
-{
-    background-color: rgba(0,0,0,0);
+.ip-input {
+    background-color: rgba(0, 0, 0, 0);
     color: white;
     /* border: 1px solid rgb(0, 0, 130); */
     border: 1px solid red;
@@ -50,10 +51,10 @@
     text-align: center;
 }
 
-.ip-input:focus
-{
+.ip-input:focus {
     outline: none;
-    caret-color: transparent;
+    caret-color: red;
+    caret-shape: underscore;
 }
 
 .submit {
