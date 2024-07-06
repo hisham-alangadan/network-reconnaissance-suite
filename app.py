@@ -43,27 +43,56 @@ def port():
         if (start_port <= 0) or (end_port > 65536):
             return redirect(url_for("error"))
         else:
-            open_ports, closed_ports, filtered_ports = port_scan(
-                ip, start_port, end_port
-            )
-            open_ports_json = json.dumps(open_ports)
-            closed_ports_json = json.dumps(closed_ports)
-            filtered_ports_json = json.dumps(filtered_ports)
+            port_range = [start_port, end_port]
+            session["port_range"] = port_range
+            return redirect(url_for("scantype"))
+            #### Add this to scantype route
 
-            port_scan_results = [
-                open_ports_json,
-                closed_ports_json,
-                filtered_ports_json,
-            ]
-            session["port_scan_results"] = port_scan_results
-            return redirect(
-                url_for(
-                    "output"
-                    # open_ports=open_ports_json,
-                    # closed_ports=closed_ports_json,
-                    # filtered_ports=filtered_ports_json,
-                )
+
+@app.route("/scantype", methods=["GET", "POST"])
+def scantype():
+    if request.method == "GET":
+        return render_template("scantype.html")
+    elif request.method == "POST":
+        port_range = session["port_range"]
+        start_port = port_range[0]
+        end_port = port_range[1]
+
+        tcp_flags = udp_flag = False
+        scantype = request.form.get("scantype")
+        if scantype == "synscan":
+            tcp_flags = "S"
+        elif scantype == "xmasscan":
+            tcp_flags = "FUP"
+        elif scantype == "udpscan":
+            udp_flag = True
+        elif scantype == "finscan":
+            tcp_flags = "F"
+        elif scantype == "ackscan":
+            tcp_flags = "A"
+        elif scantype == "nullscan":
+            tcp_flags = ""
+        open_ports, closed_ports, filtered_ports = port_scan(
+            ip, start_port, end_port, tcp_flags=tcp_flags, udp_flag=udp_flag
+        )
+        open_ports_json = json.dumps(open_ports)
+        closed_ports_json = json.dumps(closed_ports)
+        filtered_ports_json = json.dumps(filtered_ports)
+
+        port_scan_results = [
+            open_ports_json,
+            closed_ports_json,
+            filtered_ports_json,
+        ]
+        session["port_scan_results"] = port_scan_results
+        return redirect(
+            url_for(
+                "output"
+                # open_ports=open_ports_json,
+                # closed_ports=closed_ports_json,
+                # filtered_ports=filtered_ports_json,
             )
+        )
 
 
 @app.route("/output", methods=["GET", "POST"])
@@ -77,6 +106,7 @@ def output():
         open_ports = json.loads(port_scan_results[0])
         closed_ports = json.loads(port_scan_results[1])
         filtered_ports = json.loads(port_scan_results[2])
+        print(open_ports, closed_ports, filtered_ports)
         return render_template(
             "output.html",
             open_ports=open_ports,
@@ -115,7 +145,18 @@ def script():
                     output.append(check_cache_poisoning_vulnerability(headers))
                 elif script == "corsvul":
                     output.append(check_cors_vulnerability(headers))
-            return json.dumps(output)
+            session["script_results"] = output
+
+            return redirect(url_for("output2"))  # for script output
+
+
+@app.route("/output2", methods=["GET", "POST"])
+def output2():
+    if request.method == "GET":
+        script_results = session["script_results"]
+        print(script_results)
+        # return script_results
+        return render_template("output2.html", script_results=script_results)
 
 
 # @app.route("/script", methods=["GET", "POST"])
@@ -148,4 +189,5 @@ def error():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="192.168.1.10")
+# app.run()
