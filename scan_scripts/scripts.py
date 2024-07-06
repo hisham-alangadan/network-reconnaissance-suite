@@ -1,4 +1,6 @@
 import sys
+import ssl
+import socket
 
 
 def check_clickjacking_vulnerability(headers):
@@ -163,3 +165,22 @@ def check_cache_poisoning_vulnerability(headers):
         "risk": "None",
         "evidence": "Cache-Control header is properly configured.",
     }
+
+
+def ssl_certificate_check(host, port):
+    try:
+        context = ssl.create_default_context()
+        with socket.create_connection((host, port)) as sock:
+            with context.wrap_socket(sock, server_hostname=host) as ssock:
+                cert = ssock.getpeercert()
+                return {
+                    "Issuer": cert.get("issuer"),
+                    "Subject": cert.get("subject"),
+                    "Expiry Date": cert.get("notAfter"),
+                }
+    except Exception as e:
+        return {
+            "Issuer": "N/A",
+            "Subject": "N/A",
+            "Expiry Date": "N/A",
+        }
