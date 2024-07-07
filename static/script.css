@@ -9,6 +9,10 @@
     padding-bottom: 6vw;
 }
 
+label {
+    font-size: larger;
+}
+
 .heading {
     font-family: monospace;
     color: lightgreen;
@@ -75,6 +79,7 @@
 .vertical-container:hover .help {
     visibility: visible;
     transition-delay: 1s;
+    z-index: 3;
 }
 
 .vertical-container:hover .arrow {
@@ -99,6 +104,7 @@
     font-size: 20px;
     border-radius: 20px;
     padding: 8px;
+    width: 100px;
 }
 
 input[type="checkbox"] {
@@ -106,8 +112,8 @@ input[type="checkbox"] {
     background-color: transparent;
     border: 1px solid red;
     border-radius: 2px;
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     margin-bottom: -2px;
 }
 
