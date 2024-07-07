@@ -105,6 +105,14 @@ def scan_port(
                 ).start()
             if udp_flag:
                 threading.Thread(target=send_udp_packet, args=(host, port)).start()
+        elif result in [10061, 111]:
+            try:
+                service = socket.getservbyport(port)
+                closed_ports.append((port, service))
+                print(f"Port {port} ({service}) is {Fore.RED}closed{Style.RESET_ALL}")
+            except socket.error:
+                closed_ports.append((port, "unknown"))
+                print(f"Port {port} (unknown) is {Fore.RED}closed{Style.RESET_ALL}")
         elif result == 11:  # Connection timed out (indicating filtered port)
             print(f"Port {port} is {Fore.YELLOW}filtered{Style.RESET_ALL}")
             filtered_ports.append((port, "unknown"))
@@ -116,7 +124,8 @@ def scan_port(
                 closed_ports.append((port, "unknown"))
         sock.close()
     except socket.error:
-        print(f"Port {port} is filtered")
+        # print(f"Port {port} is filtered")
+        closed_ports.append((port, "unknown"))
 
 
 def analyze_ttl(ttl):
