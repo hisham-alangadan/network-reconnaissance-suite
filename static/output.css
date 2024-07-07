@@ -14,6 +14,10 @@
 	font-size: 50px;
 	padding-top: 4vh;
 	padding-bottom: 4vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 86vw;
 }
 
 .display {
@@ -25,12 +29,18 @@
 	padding: 1vw;
 }
 
+.script-runner-container {
+	display: flex;
+	flex-direction: column;
+}
+
 .output-prompt {
 	color: rgb(141, 215, 141);
 	font-family: monospace;
 	font-size: 20px;
-	padding-top: 20px;
-	padding-bottom: 5px;
+	margin-bottom: -20px;
+	/* padding-top: 20px; */
+	/* padding-bottom: 5px; */
 }
 
 .submit-button {
