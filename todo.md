@@ -12,21 +12,28 @@
 
 #### Frontend
 
--   Centering the start button and ip field (responsive)
--   cursor on ip and port input fields
--   button for port range submit (or move it to next line)
--   output_script_results.html
--   Scan types page, buttons to input fields in form
+-   ~~Centering the start button and ip field (responsive)~~
+-   ~~cursor on ip and port input fields~~
+-   ~~button for port range submit (or move it to next line)~~
+-   ~~output_script_results.html~~
+-   ~~Scan types page, buttons to input fields in form~~
 -   Error page
--   alternating index page
+-   ~~alternating index page~~
+-	Update index page with output screenshots and more `help` content
+-	Docs in `help` ?
+-	Color of submit
+-	Script option to top / autoscroll to bottom
+-	Bigger check button on script submit page
 
 #### Backend
 
--   Scan types handling (set flag and do port scan acc. to each scan type)
--   parse script output in html page
--   Handle Scripts for SSL cert check and XSS vuln (figure out domain conversion/input)
+-   ~~Scan types handling (set flag and do port scan acc. to each scan type)~~
+-   ~~parse script output in html page~~
+-   ~~Handle Scripts for SSL cert check and XSS vuln (figure out domain conversion/input)~~ 
 -   Clean up main modules. Remove init code, redundant code, print() etc
 -	No Closed ports. why?
+-	Handle Errors
+-	Remove Unwanted scan types
 
 _Scan types_
 

@@ -29,6 +29,7 @@ def ip():
             if check_host(ip):
                 return redirect(url_for("port"))
             else:
+                session["error_msg"] = "Host is down"
                 return redirect(url_for("error"))
 
 
@@ -46,7 +47,6 @@ def port():
             port_range = [start_port, end_port]
             session["port_range"] = port_range
             return redirect(url_for("scantype"))
-            #### Add this to scantype route
 
 
 @app.route("/scantype", methods=["GET", "POST"])
@@ -58,23 +58,24 @@ def scantype():
         start_port = port_range[0]
         end_port = port_range[1]
 
-        tcp_flags = udp_flag = False
+        # tcp_flags = udp_flag = False
         scantype = request.form.get("scantype")
-        if scantype == "synscan":
-            tcp_flags = "S"
-        elif scantype == "xmasscan":
-            tcp_flags = "FUP"
-        elif scantype == "udpscan":
-            udp_flag = True
-        elif scantype == "finscan":
-            tcp_flags = "F"
-        elif scantype == "ackscan":
-            tcp_flags = "A"
-        elif scantype == "nullscan":
-            tcp_flags = ""
-        open_ports, closed_ports, filtered_ports = port_scan(
-            ip, start_port, end_port, tcp_flags=tcp_flags, udp_flag=udp_flag
+        # if scantype == "synscan":
+        #     tcp_flags = "S"
+        # elif scantype == "xmasscan":
+        #     tcp_flags = "FUP"
+        # elif scantype == "udpscan":
+        #     udp_flag = True
+        # elif scantype == "finscan":
+        #     tcp_flags = "F"
+        # elif scantype == "ackscan":
+        #     tcp_flags = "A"
+        # elif scantype == "nullscan":
+        #     tcp_flags = ""
+        os_guesses, open_ports, closed_ports, filtered_ports = port_scan(
+            ip, start_port, end_port, scantype=scantype
         )
+        os_guesses_json = json.dumps(os_guesses)
         open_ports_json = json.dumps(open_ports)
         closed_ports_json = json.dumps(closed_ports)
         filtered_ports_json = json.dumps(filtered_ports)
@@ -85,6 +86,7 @@ def scantype():
             filtered_ports_json,
         ]
         session["port_scan_results"] = port_scan_results
+        session["os_guesses"] = os_guesses_json
         return redirect(
             url_for(
                 "output"
@@ -103,12 +105,14 @@ def output():
         # filtered_ports = json.loads(request.args.get("filtered_ports"))
         port_scan_results = session.pop("port_scan_results", None)
         print(type(port_scan_results))
+        os_guesses = json.loads(session["os_guesses"])
         open_ports = json.loads(port_scan_results[0])
         closed_ports = json.loads(port_scan_results[1])
         filtered_ports = json.loads(port_scan_results[2])
         print(open_ports, closed_ports, filtered_ports)
         return render_template(
             "output.html",
+            os_guesses=os_guesses,
             open_ports=open_ports,
             closed_ports=closed_ports,
             filtered_ports=filtered_ports,
@@ -173,33 +177,10 @@ def output2():
         )
 
 
-# @app.route("/script", methods=["GET", "POST"])
-# def script():
-#     if request.method == "GET":
-#         return render_template("script.html")
-#     elif request.method == "POST":
-#         if request.form.get("submit") == "Check":
-#             script_list = request.form.getlist("script")
-#             for script in script:
-#                 if script == "ssl_check":
-#                     return redirect(url_for("domaininput"))
-
-
-# @app.route("/domain", methods=["GET", "POST"])
-# def domain():
-#     if request.method == "GET":
-#         return render_template("domaininput.html")
-#     elif request.method == "POST":
-#         if request.form.get("Scan") == "scan":
-#             domain = request.form.get("ip")
-#             result = check_ssl_certificate(domain, 443)
-# 			return render_template("output")
-
-
 @app.route("/error", methods=["GET"])
 def error():
     if request.method == "GET":
-        return render_template("error.html")
+        return render_template("error.html", error_msg=session["error_msg"])
 
 
 if __name__ == "__main__":

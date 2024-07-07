@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="../static/header.css">
 	<title>Flags</title>
 </head>
+
 <body class="body">
 	<div class="header">
 		<div class="logo">Network Reconnaissance Suite</div>
@@ -36,14 +37,18 @@
 
 					<div class="horizontal-div">
 						<div class="vertical-container">
-							<button name="scantype" value="synscan">Syn Scan</button>
+							<button name="scantype" value="synscan">Stealth Scan</button>
 							<div class="arrow"></div>
 							<div class="help">
-								This scan type sends SYN packets to the target ports and analyzes the responses to determine if the ports are open, closed, or filtered. It's stealthy and efficient, as it doesn't complete the TCP handshake.
+								This scan type sends SYN packets to the target ports and analyzes the responses to
+								determine if the ports are open, closed, or filtered. It's stealthy and efficient, as it
+								doesn't complete the TCP handshake.
 								<div class="online">
 									<br>Online Resources:
 									<ul>
-										<li><a href="https://medium.com/@punamyaana08/what-is-syn-scan-how-does-syn-scan-work-81ab761fd99">What is SYN scan? How does SYN scan work?</a></li>
+										<li><a
+												href="https://medium.com/@punamyaana08/what-is-syn-scan-how-does-syn-scan-work-81ab761fd99">What
+												is SYN scan? How does SYN scan work?</a></li>
 									</ul>
 								</div>
 							</div>
@@ -52,16 +57,19 @@
 							<button name="scantype" value="xmasscan">X-mas Scan</button>
 							<div class="arrow"></div>
 							<div class="help">
-								In an XMAS scan, the scanner sends packets with the FIN, URG, and PUSH flags set, effectively lighting up the target's ports like a Christmas tree. It's used to detect open ports on the target system.
+								In an XMAS scan, the scanner sends packets with the FIN, URG, and PUSH flags set,
+								effectively lighting up the target's ports like a Christmas tree. It's used to detect
+								open ports on the target system.
 								<div class="online">
 									<br>Online Resources:
 									<ul>
-										<li><a href="https://capec.mitre.org/data/definitions/303.html">CAPEC-303: TCP Xmas Scan</a></li>
+										<li><a href="https://capec.mitre.org/data/definitions/303.html">CAPEC-303: TCP
+												Xmas Scan</a></li>
 									</ul>
 								</div>
 							</div>
 						</div>
-						<div class="vertical-container">
+						<!-- <div class="vertical-container">
 							<button name="scantype" value="tcpconnect">TCP Connect</button>
 							<div class="arrow"></div>
 							<div class="help">
@@ -73,16 +81,19 @@
 									</ul>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<div class="vertical-container">
 							<button name="scantype" value="udpscan">UDP Scan</button>
 							<div class="arrow"></div>
 							<div class="help">
-								UDP scanning involves sending UDP packets to target ports and analyzing the responses. Since UDP is connectionless, the scanner doesn't expect acknowledgments and determines open ports based on responses or lack thereof.
+								UDP scanning involves sending UDP packets to target ports and analyzing the responses.
+								Since UDP is connectionless, the scanner doesn't expect acknowledgments and determines
+								open ports based on responses or lack thereof.
 								<div class="online">
 									<br>Online Resources:
 									<ul>
-										<li><a href="https://capec.mitre.org/data/definitions/308.html">CAPEC-308: UDP Scan</a></li>
+										<li><a href="https://capec.mitre.org/data/definitions/308.html">CAPEC-308: UDP
+												Scan</a></li>
 									</ul>
 								</div>
 							</div>
@@ -91,27 +102,33 @@
 							<button name="scantype" value="finscan">FIN Scan</button>
 							<div class="arrow"></div>
 							<div class="help">
-								In a FIN scan, the scanner sends packets with only the FIN flag set. It's used to determine if ports are open or closed based on how the target's system responds to these packets.
+								In a FIN scan, the scanner sends packets with only the FIN flag set. It's used to
+								determine if ports are open or closed based on how the target's system responds to these
+								packets.
 								<div class="online">
 									<br>Online Resources:
 									<ul>
-										<li><a href="https://capec.mitre.org/data/definitions/302.html">CAPEC-302: TCP FIN Scan</a></li>
+										<li><a href="https://capec.mitre.org/data/definitions/302.html">CAPEC-302: TCP
+												FIN Scan</a></li>
 									</ul>
 								</div>
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="horizontal-div">
 						<div class="vertical-container">
 							<button name="scantype" value="ackscan">ACK Scan</button>
 							<div class="arrow"></div>
 							<div class="help">
-								This scan type sends packets with only the ACK flag set. It's primarily used to determine if a firewall is present and filtering traffic based on ACK responses.
+								This scan type sends packets with only the ACK flag set. It's primarily used to
+								determine if a firewall is present and filtering traffic based on ACK responses.
 								<div class="online">
 									<br>Online Resources:
 									<ul>
-										<li><a href="https://resources.infosecinstitute.com/topic/nmaps-ack-scan-a-stealthy-port-scanning/">Nmap's ACK scan: A Stealthy Port Scanning</a></li>
+										<li><a
+												href="https://resources.infosecinstitute.com/topic/nmaps-ack-scan-a-stealthy-port-scanning/">Nmap's
+												ACK scan: A Stealthy Port Scanning</a></li>
 									</ul>
 								</div>
 							</div>
@@ -120,16 +137,20 @@
 							<button name="scantype" value="nullscan">NULL Scan</button>
 							<div class="arrow"></div>
 							<div class="help">
-								In a NULL scan, the scanner sends packets with no flags set (NULL packets) to the target ports. It relies on how the target system responds to these packets to determine port status.
+								In a NULL scan, the scanner sends packets with no flags set (NULL packets) to the target
+								ports. It relies on how the target system responds to these packets to determine port
+								status.
 								<div class="online">
 									<br>Online Resources:
 									<ul>
-										<li><a href="https://www.offensive-security.com/metasploit-unleashed/null-scan/">Null Scan</a></li>
+										<li><a
+												href="https://www.offensive-security.com/metasploit-unleashed/null-scan/">Null
+												Scan</a></li>
 									</ul>
 								</div>
 							</div>
 						</div>
-						<div class="vertical-container">
+						<!-- <div class="vertical-container">
 							<button name="scantype" value="rpcscan">RPC Scan</button>
 							<div class="arrow"></div>
 							<div class="help">
@@ -154,7 +175,7 @@
 									</ul>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</form>
