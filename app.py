@@ -29,6 +29,7 @@ def ip():
             if check_host(ip):
                 return redirect(url_for("port"))
             else:
+                session["error_msg"] = "Host is down"
                 return redirect(url_for("error"))
 
 
@@ -46,7 +47,6 @@ def port():
             port_range = [start_port, end_port]
             session["port_range"] = port_range
             return redirect(url_for("scantype"))
-            #### Add this to scantype route
 
 
 @app.route("/scantype", methods=["GET", "POST"])
@@ -173,33 +173,10 @@ def output2():
         )
 
 
-# @app.route("/script", methods=["GET", "POST"])
-# def script():
-#     if request.method == "GET":
-#         return render_template("script.html")
-#     elif request.method == "POST":
-#         if request.form.get("submit") == "Check":
-#             script_list = request.form.getlist("script")
-#             for script in script:
-#                 if script == "ssl_check":
-#                     return redirect(url_for("domaininput"))
-
-
-# @app.route("/domain", methods=["GET", "POST"])
-# def domain():
-#     if request.method == "GET":
-#         return render_template("domaininput.html")
-#     elif request.method == "POST":
-#         if request.form.get("Scan") == "scan":
-#             domain = request.form.get("ip")
-#             result = check_ssl_certificate(domain, 443)
-# 			return render_template("output")
-
-
 @app.route("/error", methods=["GET"])
 def error():
     if request.method == "GET":
-        return render_template("error.html")
+        return render_template("error.html", error_msg=session["error_msg"])
 
 
 if __name__ == "__main__":
