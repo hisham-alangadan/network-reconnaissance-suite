@@ -10,12 +10,10 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
 
-
 @app.route("/", methods=["GET"])
 def index():
     if request.method == "GET":
         return render_template("index.html")
-
 
 @app.route("/ip", methods=["GET", "POST"])
 def ip():
@@ -32,7 +30,6 @@ def ip():
                 session["error_msg"] = "Host is down"
                 return redirect(url_for("error"))
 
-
 @app.route("/port", methods=["GET", "POST"])
 def port():
     if request.method == "GET":
@@ -47,7 +44,6 @@ def port():
             port_range = [start_port, end_port]
             session["port_range"] = port_range
             return redirect(url_for("scantype"))
-
 
 @app.route("/scantype", methods=["GET", "POST"])
 def scantype():
@@ -96,7 +92,6 @@ def scantype():
             )
         )
 
-
 @app.route("/output", methods=["GET", "POST"])
 def output():
     if request.method == "GET":
@@ -120,7 +115,6 @@ def output():
     elif request.method == "POST":
         if request.form.get("submit") == "Yes":
             return redirect(url_for("script"))
-
 
 @app.route("/script", methods=["GET", "POST"])
 def script():
@@ -163,7 +157,6 @@ def script():
 
             return redirect(url_for("output2"))  # for script output
 
-
 @app.route("/output2", methods=["GET", "POST"])
 def output2():
     if request.method == "GET":
@@ -176,13 +169,10 @@ def output2():
             "output2.html", script_results=script_results, ssl_cert=ssl_cert
         )
 
-
 @app.route("/error", methods=["GET"])
 def error():
     if request.method == "GET":
         return render_template("error.html", error_msg=session["error_msg"])
 
-
 if __name__ == "__main__":
-    app.run(host="192.168.1.10")
-# app.run()
+    app.run()

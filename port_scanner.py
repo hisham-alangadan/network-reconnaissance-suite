@@ -294,24 +294,12 @@ def port_scan(host, start_port, end_port, scantype):
     for port in range(start_port, end_port + 1):
         thread = threading.Thread(
             target=scan_port,
-            args=(
-                host,
-                port,
-                scantype,
-                open_ports,
-                closed_ports,
-                filtered_ports,
-                os_guesses,
-            ),
+            args=(host,port,scantype,open_ports,closed_ports,filtered_ports,os_guesses),
         )
         threads.append(thread)
         thread.start()
     for thread in threads:
         thread.join()
-    # print("\nOperating System Guesses:")
-    # for port, os_guess in os_guesses:
-    #     print(f"Port {port}: {Fore.GREEN}{os_guess}{Style.RESET_ALL}")
-    #     print("\n")
     return (
         sorted(os_guesses),
         sorted(open_ports),
